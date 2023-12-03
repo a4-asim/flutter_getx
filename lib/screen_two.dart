@@ -13,7 +13,7 @@ class _ScreenTwoState extends State<ScreenTwo> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Screen Two'),
+        title: const Text('Screen Two'),
         backgroundColor: Colors.blueGrey,
         centerTitle: true,
       ),

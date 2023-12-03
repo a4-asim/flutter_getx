@@ -76,7 +76,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           ElevatedButton(
             onPressed: () {
-              Get.to(const ScreenOne());
+              Get.to(const ScreenOne(name: 'Hello',));
             },
             child: const Text('Go to Screen One'),
           ),
