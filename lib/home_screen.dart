@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_getx/screen_one.dart';
+import 'package:flutter_getx/screen_two.dart';
 import 'package:get/get.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -14,6 +16,8 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Getx Learning'),
+        backgroundColor: Colors.blueAccent,
+        centerTitle: true,
       ),
       body: Column(
         children: [
@@ -69,7 +73,19 @@ class _HomeScreenState extends State<HomeScreen> {
                 ));
               },
             ),
-          )
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Get.to(const ScreenOne());
+            },
+            child: const Text('Go to Screen One'),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Get.to(const ScreenTwo());
+            },
+            child: const Text('Go to Screen Two'),
+          ),
         ],
       ),
       floatingActionButton: FloatingActionButton(onPressed: () {
