@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_getx/home_screen.dart';
+import 'package:flutter_getx/screen_one.dart';
+import 'package:flutter_getx/screen_two.dart';
 import 'package:get/get.dart';
 
 void main() {
@@ -15,11 +17,18 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Getx Demo',
       theme: ThemeData(
-
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
       home: const HomeScreen(),
+
+      // Routes Of App
+
+      getPages: [
+        GetPage(name: '/', page: () => const HomeScreen()),
+        GetPage(name: '/screenOne', page: () => ScreenOne()),
+        GetPage(name: '/screenTwo', page: () => const ScreenTwo()),
+      ],
     );
   }
 }
