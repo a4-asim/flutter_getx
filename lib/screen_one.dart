@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 
 // ignore: must_be_immutable
 class ScreenOne extends StatefulWidget {
+  // ignore: prefer_typing_uninitialized_variables
   var name;
   ScreenOne({super.key, this.name});
 
@@ -21,8 +22,8 @@ class _ScreenOneState extends State<ScreenOne> {
         centerTitle: true,
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Center(
             child: ElevatedButton(
@@ -37,6 +38,17 @@ class _ScreenOneState extends State<ScreenOne> {
                   Get.to(const ScreenTwo());
                 },
                 child: const Text('Screen Two')),
+          ),
+          Container(
+            color: Colors.red,
+            height: Get.height* .1,
+            width: Get.width * 1,
+          ),
+
+          Container(
+            color: Colors.green,
+            height: Get.height* .2,
+            width: Get.width * 1,
           ),
         ],
       ),
