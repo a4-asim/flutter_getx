@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_getx/counterController.dart';
 import 'package:flutter_getx/screen_two.dart';
 import 'package:get/get.dart';
 
@@ -10,7 +11,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int counter = 1;
+  final CounterController counterController = Get.put(CounterController());
 
   @override
   Widget build(BuildContext context) {
@@ -91,26 +92,30 @@ class _HomeScreenState extends State<HomeScreen> {
             height: 50,
           ),
           Container(
-            height: 60,
-            width: 60,
-            decoration: const BoxDecoration(
-              color: Colors.amber,
-              shape: BoxShape.circle,
-            ),
-            child: Center(
-              child: Text(
-                counter.toString(),
-                style:
-                    const TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+              height: 60,
+              width: 60,
+              decoration: const BoxDecoration(
+                color: Colors.amber,
+                shape: BoxShape.circle,
               ),
-            ),
-          )
+              child: Obx(
+                () => Center(
+                  child: Text(
+                    counterController.counter.toString(),
+                    style: const TextStyle(
+                        fontSize: 25, fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ))
         ],
       ),
       floatingActionButton: FloatingActionButton(onPressed: () {
-        setState(() {
-          counter++;
-        });
+        counterController.incrementConuter();
+        // setState(() {
+        //   counter++;
+        // });
+
+        // SnackBar code for Getx
         // Get.snackbar(
         //   "Asim Majeed",
         //   "Welcome to Getx learning app",
