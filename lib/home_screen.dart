@@ -39,6 +39,13 @@ class _HomeScreenState extends State<HomeScreen> {
           )),
           Card(
               child: ListTile(
+            title: const Text("Getx Notification Switch"),
+            onTap: () {
+              Get.toNamed('/notificationScreen');
+            },
+          )),
+          Card(
+              child: ListTile(
             title: const Text("Getx Dialogue Box"),
             onTap: () {
               Get.defaultDialog(

@@ -24,8 +24,8 @@ class _CounterExampleState extends State<CounterExample> {
       ),
       body: Center(
         child: Container(
-            height: 60,
-            width: 60,
+            height: 160,
+            width: 160,
             decoration: const BoxDecoration(
               color: Colors.amber,
               shape: BoxShape.circle,
@@ -35,28 +35,39 @@ class _CounterExampleState extends State<CounterExample> {
                 child: Text(
                   counterController.counter.toString(),
                   style: const TextStyle(
-                      fontSize: 25, fontWeight: FontWeight.bold),
+                      fontSize: 45, fontWeight: FontWeight.bold),
                 ),
               ),
             )),
       ),
       floatingActionButton: FloatingActionButton(
-          backgroundColor: Colors.red,
-          disabledElevation: 1,
-          onPressed: () {
-            counterController.incrementConuter();
-            // setState(() {
-            //   counter++;
-            // });
+        backgroundColor: Colors.red,
+        disabledElevation: 1,
+        onPressed: () {
+          counterController.incrementConuter();
+          // setState(() {
+          //   counter++;
+          // });
 
-            // SnackBar code for Getx
-            // Get.snackbar(
-            //   "Asim Majeed",
-            //   "Welcome to Getx learning app",
-            //   backgroundColor: Colors.blueAccent,
-            //   icon: const Icon(Icons.show_chart),
-            // );
-          }),
+          // SnackBar code for Getx
+          // Get.snackbar(
+          //   "Asim Majeed",
+          //   "Welcome to Getx learning app",
+          //   backgroundColor: Colors.blueAccent,
+          //   icon: const Icon(Icons.show_chart),
+          // );
+        },
+        shape: const RoundedRectangleBorder(
+          // <= Change BeveledRectangleBorder to RoundedRectangularBorder
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(30.0),
+            topRight: Radius.circular(30.0),
+            bottomLeft: Radius.circular(30.0),
+            bottomRight: Radius.circular(30.0),
+          ),
+        ),
+        child: const Icon(Icons.add),
+      ),
     );
   }
 }
