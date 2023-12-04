@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_getx/GetxMiniProjects/counter_screen.dart';
+import 'package:flutter_getx/GetxMiniProjects/slider_screen.dart';
 import 'package:flutter_getx/home_screen.dart';
 import 'package:flutter_getx/screen_one.dart';
 import 'package:flutter_getx/screen_two.dart';
@@ -28,6 +30,8 @@ class MyApp extends StatelessWidget {
         GetPage(name: '/', page: () => const HomeScreen()),
         GetPage(name: '/screenOne', page: () => ScreenOne()),
         GetPage(name: '/screenTwo', page: () => const ScreenTwo()),
+        GetPage(name: '/counterScreen', page: () => const CounterExample()),
+        GetPage(name: '/sliderScreen', page: () => const SliderExample()),
       ],
     );
   }
