@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_getx/controllers/switchController.dart';
 import 'package:get/get.dart';
 
 class NotificationScreen extends StatefulWidget {
@@ -10,6 +11,7 @@ class NotificationScreen extends StatefulWidget {
 
 class _NotificationScreenState extends State<NotificationScreen> {
   bool switchvalue = false;
+  final SwitchController _switchController = Get.put(SwitchController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,18 +29,16 @@ class _NotificationScreenState extends State<NotificationScreen> {
               'Switch for Theme Change',
               style: TextStyle(fontSize: 20),
             ),
-            Switch(
-                value: switchvalue,
+            Obx(() => Switch(
+                value: _switchController.switchvalue.value,
                 onChanged: (value) {
-                  switchvalue = value;
-                  setState(() {
-                    if (switchvalue == false) {
-                      Get.changeTheme(ThemeData.light());
-                    } else {
-                      Get.changeTheme(ThemeData.dark());
-                    }
-                  });
-                })
+                  _switchController.switchnow(value);
+                  if (_switchController.switchvalue.value == false) {
+                    Get.changeTheme(ThemeData.light());
+                  } else {
+                    Get.changeTheme(ThemeData.dark());
+                  }
+                }))
           ],
         ),
       ),
