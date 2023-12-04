@@ -10,6 +10,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  int counter = 1;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -85,15 +87,36 @@ class _HomeScreenState extends State<HomeScreen> {
             },
             child: const Text('Go to Screen Two'),
           ),
+          const SizedBox(
+            height: 50,
+          ),
+          Container(
+            height: 60,
+            width: 60,
+            decoration: const BoxDecoration(
+              color: Colors.amber,
+              shape: BoxShape.circle,
+            ),
+            child: Center(
+              child: Text(
+                counter.toString(),
+                style:
+                    const TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+              ),
+            ),
+          )
         ],
       ),
       floatingActionButton: FloatingActionButton(onPressed: () {
-        Get.snackbar(
-          "Asim Majeed",
-          "Welcome to Getx learning app",
-          backgroundColor: Colors.blueAccent,
-          icon: const Icon(Icons.show_chart),
-        );
+        setState(() {
+          counter++;
+        });
+        // Get.snackbar(
+        //   "Asim Majeed",
+        //   "Welcome to Getx learning app",
+        //   backgroundColor: Colors.blueAccent,
+        //   icon: const Icon(Icons.show_chart),
+        // );
       }),
     );
   }

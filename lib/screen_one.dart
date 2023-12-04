@@ -41,13 +41,12 @@ class _ScreenOneState extends State<ScreenOne> {
           ),
           Container(
             color: Colors.red,
-            height: Get.height* .1,
+            height: Get.height * .1,
             width: Get.width * 1,
           ),
-
           Container(
             color: Colors.green,
-            height: Get.height* .2,
+            height: Get.height * .2,
             width: Get.width * 1,
           ),
         ],
