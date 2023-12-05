@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_getx/GetxMiniProjects/counter_screen.dart';
 import 'package:flutter_getx/GetxMiniProjects/notification_screen.dart';
 import 'package:flutter_getx/GetxMiniProjects/slider_screen.dart';
+import 'package:flutter_getx/controllers/languages.dart';
 import 'package:flutter_getx/home_screen.dart';
+import 'package:flutter_getx/localization.dart';
 import 'package:flutter_getx/screen_one.dart';
 import 'package:flutter_getx/screen_two.dart';
 import 'package:get/get.dart';
@@ -19,6 +21,9 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Getx Demo',
+      locale: const Locale('en', 'US'),
+      fallbackLocale: const Locale('en', 'US'),
+      translations: Languages(),
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
@@ -33,9 +38,10 @@ class MyApp extends StatelessWidget {
         GetPage(name: '/screenTwo', page: () => const ScreenTwo()),
         GetPage(name: '/counterScreen', page: () => const CounterExample()),
         GetPage(name: '/sliderScreen', page: () => const SliderExample()),
-        GetPage(name: '/notificationScreen', page: () => const NotificationScreen()),
-
-        
+        GetPage(
+            name: '/notificationScreen',
+            page: () => const NotificationScreen()),
+        GetPage(name: '/languagesScreen', page: () => const LanguagesScreen()),
       ],
     );
   }
