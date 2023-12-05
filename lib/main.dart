@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_getx/GetxMiniProjects/counter_screen.dart';
+import 'package:flutter_getx/GetxMiniProjects/fruit_list.dart';
 import 'package:flutter_getx/GetxMiniProjects/notification_screen.dart';
 import 'package:flutter_getx/GetxMiniProjects/slider_screen.dart';
 import 'package:flutter_getx/controllers/languages.dart';
@@ -42,6 +43,7 @@ class MyApp extends StatelessWidget {
             name: '/notificationScreen',
             page: () => const NotificationScreen()),
         GetPage(name: '/languagesScreen', page: () => const LanguagesScreen()),
+        GetPage(name: '/fruitScreen', page: () => const FruitScreen()),
       ],
     );
   }
