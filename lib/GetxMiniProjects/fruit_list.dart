@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_getx/controllers/favouriteController.dart';
+import 'package:get/get.dart';
 
 class FruitScreen extends StatefulWidget {
   const FruitScreen({super.key});
@@ -8,8 +10,7 @@ class FruitScreen extends StatefulWidget {
 }
 
 class _FruitScreenState extends State<FruitScreen> {
-  List<String> fruitList = ['Apple', 'Orange', 'Bannana', 'Stawbery', 'Grapes'];
-  List<String> tempList = [];
+  FavouriteController favouriteController = Get.put(FavouriteController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,27 +19,32 @@ class _FruitScreenState extends State<FruitScreen> {
         centerTitle: true,
       ),
       body: ListView.builder(
-          itemCount: fruitList.length,
+          itemCount: favouriteController.fruitLst.length,
           itemBuilder: (context, index) {
             return Column(
               children: [
                 Card(
                   child: ListTile(
-                    onTap: () {
-                      if (tempList.contains(fruitList[index].toString())) {
-                        tempList.remove(fruitList[index].toString());
-                      } else {
-                        tempList.add(fruitList[index].toString());
-                      }
-
-                      setState(() {});
-                    },
-                    title: Text(fruitList[index].toString()),
-                    trailing: Icon(Icons.favorite,
-                        color: (tempList.contains(fruitList[index].toString()))
-                            ? Colors.red
-                            : Colors.white),
-                  ),
+                      onTap: () {
+                        if (favouriteController.tempList.contains(
+                            favouriteController.fruitLst[index].toString())) {
+                          favouriteController.removeFruits(
+                              favouriteController.fruitLst[index].toString());
+                        } else {
+                          favouriteController.addFruits(
+                              favouriteController.fruitLst[index].toString());
+                        }
+                      },
+                      title:
+                          Text(favouriteController.fruitLst[index].toString()),
+                      trailing: Obx(
+                        () => Icon(Icons.favorite,
+                            color: (favouriteController.tempList.contains(
+                                    favouriteController.fruitLst[index]
+                                        .toString()))
+                                ? Colors.red
+                                : Colors.white),
+                      )),
                 ),
               ],
             );
